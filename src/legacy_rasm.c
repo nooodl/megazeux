@@ -2506,7 +2506,7 @@ __editor_maybe_static int disassemble_line(char *cpos, char **next,
 void disassemble_file(char *name, char *program, int program_length,
  int allow_ignores, int base)
 {
-  FILE *output_file = fsafeopen(name, "wb");
+  FILE *output_file = stdout;
   char command_buffer[256];
   char error_buffer[256];
   char *current_robot_pos = program + 1;
@@ -2532,7 +2532,7 @@ void disassemble_file(char *name, char *program, int program_length,
     current_robot_pos = next;
   } while(new_line);
 
-  fclose(output_file);
+  // fclose(output_file);
 }
 
 #endif // CONFIG_DEBYTECODE

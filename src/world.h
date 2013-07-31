@@ -130,6 +130,8 @@ CORE_LIBSPEC void add_ext(char *src, const char *ext);
 bool reload_savegame(struct world *mzx_world, const char *file, int *faded);
 bool reload_swap(struct world *mzx_world, const char *file, int *faded);
 
+void analyze_robotic(struct world *mzx_world);
+
 // Code to load multi-byte ints from little endian file
 
 int fgetw(FILE *fp);

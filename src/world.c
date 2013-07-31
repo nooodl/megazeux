@@ -85,6 +85,21 @@ static inline void meter_initial_draw(int curr, int target,
 
 #endif // CONFIG_LOADSAVE_METER
 
+void analyze_robotic(struct world *mzx_world)
+{
+    int i, j;
+    struct board *board;
+    struct robot *robot;
+    for (i = 0; i < mzx_world->num_boards; i++) {
+        board = mzx_world->board_list[i];
+        for (j = 0; j < board->num_robots; j++) {
+            robot = board->robot_list[j];
+            disassemble_file(NULL, robot->program_bytecode, 
+                robot->program_bytecode_length, 0, 10);
+        }
+    }
+}
+
 // Get 2 bytes
 
 int fgetw(FILE *fp)
@@ -1545,6 +1560,8 @@ static void load_world(struct world *mzx_world, FILE *fp, const char *file,
   find_player(mzx_world);
 
   meter_restore_screen();
+
+  analyze_robotic(mzx_world);
 
   fclose(fp);
 }
