@@ -50,6 +50,7 @@
 #include "extmem.h"
 #include "util.h"
 #include "validation.h"
+#include "legacy_rasm.h"
 
 static const char magic_code[16] =
  "\xE6\x52\xEB\xF2\x6D\x4D\x4A\xB7\x87\xB2\x92\x88\xDE\x91\x24";
