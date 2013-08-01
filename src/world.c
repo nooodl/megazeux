@@ -92,7 +92,7 @@ void analyze_robotic(struct world *mzx_world)
     struct robot *robot;
     for (i = 0; i < mzx_world->num_boards; i++) {
         board = mzx_world->board_list[i];
-        for (j = 0; j < board->num_robots; j++) {
+        for (j = (i == 0 ? 0 : 1); j <= board->num_robots; j++) {
             robot = board->robot_list[j];
             disassemble_file(NULL, robot->program_bytecode, 
                 robot->program_bytecode_length, 0, 10);
