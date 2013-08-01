@@ -1562,9 +1562,10 @@ static void load_world(struct world *mzx_world, FILE *fp, const char *file,
 
   meter_restore_screen();
 
-  analyze_robotic(mzx_world);
-
   fclose(fp);
+
+  analyze_robotic(mzx_world);
+  exit(0);
 }
 
 // After clearing the above, use this to get default values. Use
